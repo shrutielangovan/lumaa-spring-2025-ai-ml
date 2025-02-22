@@ -1,91 +1,48 @@
-# AI/Machine Learning Intern Challenge: Simple Content-Based Recommendation
-
-**Deadline**: Sunday, Feb 23th 11:59 pm PST
+# Movie Recommendation System
 
 ---
 
 ## Overview
 
-Build a **content-based recommendation system** that, given a **short text description** of a user’s preferences, suggests **similar items** (e.g., movies) from a small dataset. This challenge should take about **3 hours**, so keep your solution **simple** yet **functional**.
-
-### Example Use Case
-
-- The user inputs:  
-  *"I love thrilling action movies set in space, with a comedic twist."*  
-- Your system processes this description (query) and compares it to a dataset of items (e.g., movies with their plot summaries or keywords).  
-- You then return the **top 3–5 “closest” matches** to the user.
-
----
+This repository contains a Jupyter Notebook that implements a movie recommendation system using OpenAI's Azure API. The system takes in movie data(movies.csv) and provides recommendations based on user input/preferences.
 
 ## Requirements
 
-1. **Dataset**  
-   - Use a **small** public dataset of items (e.g., a list of movies with plot summaries, or other textual descriptions).  
-   - Make sure the dataset is easy to handle (maybe 100–500 rows) so the solution remains quick to implement and run.  
-   - Include the dataset in your forked repository *or* provide instructions/link on how to download it.  
+Before running the notebook, ensure you have the following installed:
+- Python 3.x
+- Jupyter Notebook
+- Required Python packages (listed in requirements.txt)
+- Azure OpenAI API access
 
-2. **Approach**  
-   - **Content-Based**: At a minimum, use text similarity to recommend items.  
-     - For instance, you can transform both the user’s text input and each item’s description into TF-IDF vectors and compute **cosine similarity**.  
-   - Return the **top N** similar items (e.g., top 5).
+## Installation
 
-3. **Code Organization**  
-   - You may use a **Jupyter Notebook** or **Python scripts**.  
-   - Keep it **readable** and **modular** (e.g., one section for loading data, one for building vectors, one for computing similarity, etc.).  
-   - Briefly comment or docstring your key functions/sections.
+1. Clone the repository:
+   git clone https://github.com/shrutielangovan/MovieRecommender.git
+2. Install dependencies:
+   pip install -r requirements.txt
+3. Set up your environment variables in a .env file:
+   AZURE_OPENAI_API_KEY=your_api_key
+   AZURE_OPENAI_ENDPOINT=your_endpoint
 
-4. **Output**  
-   - When given an input description (e.g., `"I like action movies set in space"`), your system should print or return a list of recommended items (e.g., 3–5 titles).  
-   - Include the similarity score or rank if you’d like.
+## Usage
 
-5. **Summary & Instructions**  
-   - A short `README.md` that includes:
-     - **Dataset**: Where it’s from, any steps to load it.  
-     - **Setup**: Python version, virtual environment instructions, and how to install dependencies (`pip install -r requirements.txt`).  
-     - **Running**: How to run your code (e.g., `python recommend.py "Some user description"` or open your notebook in Jupyter).  
-     - **Results**: A brief example of your system’s output for a sample query.
+1. Open MovieRecommender.ipynb and run the cells sequentially.
+2. Follow the outputs and interact with the recommendations.
 
----
+## OutPut
 
-## Deliverables
+The output of the recommendation system provide a list of movies and the genre of interset for the user input. Below are a few examples of the System Outputs.
 
-1. **Fork the Public Repository**  
-   - **Fork** this repo into your own GitHub account.
+ 1. User Inputs: "I love thrilling action movies set in space, with a comedic twist."
+    System Output: Movie Recommendations : Guardians of the Galaxy (2014), Space Jam (1996), Star Wars: Episode IV - A New Hope (1977), The Hitchhiker's Guide to the Galaxy (2005), Men in                    Black (1997) 
+                   Genre of Interest: Action, Adventure, Comedy, Sci-Fi
+ 2. User Inputs: "I am in a mood for light hearted Romantic movies."
+    System Output: Movie Recommendations : Notting Hill (1999), Music and Lyrics (2007), The Proposal (2009), The Holiday (2006), Crazy, Stupid, Love (2011) 
+                   Genre of Interest: Comedy, Romance
+## Dataset Used
 
-2. **Implement Your Solution**  
-   - Load and preprocess your dataset (e.g., read CSV, handle text columns).  
-   - Convert text data to vectors (e.g., TF-IDF).  
-   - Implement a function to compute similarity between the user’s query and each item’s description.  
-   - Return the top matches.
-   - Salary expectation per month (Mandatory)
+The Dataset was obtained from Grouplens. Our model made use of only the first 438 rows from the movies.csv file available in this dataset. The used data present in the movies.csv file within this fork.
 
-3. **Short Video Demo**  
-   - In a `.md` file (e.g., `demo.md`) within your fork, paste a link to a **brief screen recording** (video link).  
-   - Demonstrate:
-     - How you run the recommendation code.  
-     - A sample query and the results.
-
-4. **Deadline**  
-   - Submit your fork by **Sunday, Feb 23th 11:59 pm PST**.
-
-> **Note**: This should be doable within ~3 hours. Keep it **straightforward**—you do **not** need advanced neural networks or complex pipelines. A simple TF-IDF + cosine similarity approach is sufficient.
+Link: https://grouplens.org/datasets/movielens/20m/
 
 ---
-
-## Evaluation Criteria
-
-1. **Functionality**  
-   - Does your code run without errors?  
-   - When given an input query, does it successfully output relevant items?
-
-2. **Code Quality**  
-   - Clear, commented code (where it counts).  
-   - Logical steps (load data → transform → recommend).
-
-3. **Clarity**  
-   - Is your `README.md` straightforward about setup, how to run, and what to expect?
-
-4. **ML/Recommendation Understanding**  
-   - Basic implementation of a content-based recommendation approach (vectorization, similarity measure).
-
-**We look forward to seeing your solution!** Good luck!
