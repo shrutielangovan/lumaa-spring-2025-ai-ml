@@ -1,0 +1,7 @@
+pandas
+os
+json
+time
+tqdm
+dotenv
+openai
